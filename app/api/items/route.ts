@@ -6,16 +6,15 @@ export async function POST (req: Request) {
   const { search } = await req.json()
 
   if (search == null || search === '') {
-    return NextResponse.json('No se encontro nada')
+    return NextResponse.json({ error: 'No se encontro nada' }, { status: 404 })
   }
 
   const url = new URL(req.url)
-  url.searchParams.set('q', search)
 
   const query = url.searchParams.get('q')
 
   if (query == null) {
-    return NextResponse.json('No se encontro nada')
+    return NextResponse.json({ error: 'No se encontro nada' }, { status: 404 })
   }
 
   const toLowerCaseQuery = query.toLowerCase()
@@ -27,7 +26,7 @@ export async function POST (req: Request) {
   )
 
   if (filterItem.length === 0) {
-    return NextResponse.json('No se encontro nada')
+    return NextResponse.json({ error: 'No se encontro nada' }, { status: 404 })
   }
 
   return NextResponse.json(filterItem)
