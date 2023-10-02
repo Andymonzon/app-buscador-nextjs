@@ -1,6 +1,6 @@
 import { type ProductElement } from '@/models'
 
-const url = 'http://localhost:3000/api/items'
+const url = process.env.URL_API
 
 export async function getProduct (id: string) {
   return await fetch(`${url}/${id}`)
