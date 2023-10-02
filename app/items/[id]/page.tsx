@@ -2,7 +2,7 @@ import { Suspense } from 'react'
 import { CardInfo } from './components'
 import Skeleton from './skeleton'
 
-export function ProductId ({ params }: { params: { id: string } }) {
+function ProductId ({ params }: { params: { id: string } }) {
   return (
     <section>
       <Suspense fallback={<Skeleton />} >
