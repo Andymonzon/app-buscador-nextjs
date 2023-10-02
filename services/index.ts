@@ -1,1 +1,1 @@
-export { sendData } from './getData/getData'
+export { sendData, getProduct } from './getData/getData'
