@@ -4,8 +4,6 @@ import Skeleton from './skeleton'
 import { randomUUID } from 'crypto'
 
 export function ProductId ({ params }: { params: { id: string } }) {
-  console.log(params.id)
-
   return (
     <section>
       <Suspense fallback={<Skeleton />} >
